@@ -13,6 +13,7 @@ export interface Game {
   background_image: string;
   name: string;
   platforms: Platform[];
+  metacritic: number;
 }
 
 const useGames = () => {
