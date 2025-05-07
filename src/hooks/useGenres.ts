@@ -9,19 +9,10 @@ const useGenres = () => {
   const [isLoading, setLoading] = useState(false);
 
 
-  const getGenres = (data: Game[]): string[] => {
-    const allGenres = data.reduce((acc, game) => {
-      game.genres.forEach(genre => {
-        if (!acc.includes(genre)) acc.push(genre);
-      });
-      return acc;
-    }, [] as Genre[]);
-
-    const genres: string[] = allGenres.map(genre => {
-      return genre.name;
-    });
-
-    console.log(genres);
+  const getGenres = (games: Game[]): string[] => {
+    const genres = games.
+      flatMap(game => game.genres).
+      map(genre => genre.name)
 
     return [...new Set(genres)];
   };
