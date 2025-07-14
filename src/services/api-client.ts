@@ -1,5 +1,5 @@
 import axios from "axios";
 
 export default axios.create({
-  baseURL:"https://jsonfakery.com",
+  baseURL:`https://api.rawg.io/api`,
 })

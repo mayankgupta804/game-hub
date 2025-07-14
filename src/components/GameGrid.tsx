@@ -17,7 +17,7 @@ const GameGrid = () => {
               <GameCardSkeleton key={skeleton} />
             </GameCardContainer>
           ))}
-          {data.map(game => (
+          {data?.results.map(game => (
             <GameCardContainer>
               <GameCard game={game} key={game.id} />
             </GameCardContainer>

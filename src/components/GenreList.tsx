@@ -1,24 +1,15 @@
 import { List, ListItem, Text } from "@chakra-ui/react";
-import useData from "../hooks/useData";
-import { Game } from "../hooks/useGames";
+import useGenres from "../hooks/useGenres";
 
 const GenreList = () => {
-  const { data, error, isLoading } = useData<Game>("/games/random/10")
-
-  const genres = (games: Game[]) => {
-    const genres = games.
-      flatMap(game => game.genres).
-      map(genre => genre.name)
-
-    return [...new Set(genres)];
-  };
+  const { data, error, isLoading } = useGenres();
 
   return (
     <List>
-      {genres(data).map((genre) => {
+      {data?.results.map((genre) => {
         return (
-          <ListItem paddingY='5px' key={genre}>
-            <Text fontSize='lg'>{genre}</Text>
+          <ListItem paddingY='5px' key={genre.id}>
+            <Text fontSize='lg'>{genre.name}</Text>
           </ListItem>
         );
       })}
