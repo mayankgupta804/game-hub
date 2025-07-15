@@ -1,4 +1,5 @@
 import useData from "./useData";
+import { Genre } from "./useGenres";
 
 export interface Platform {
   id: string;
@@ -25,6 +26,7 @@ export interface FetchGamesResponse {
   results: Game[];
 }
 
-const useGames = () => useData<FetchGamesResponse>("/games");
+const useGames = (selectedGenre: Genre | null) => useData<FetchGamesResponse>("/games",
+  { params: { genres: selectedGenre?.id } }, [selectedGenre?.id]);
 
 export default useGames;
