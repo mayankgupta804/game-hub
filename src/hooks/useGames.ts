@@ -30,7 +30,8 @@ const useGames = (gameQuery: GameQuery) => useData<FetchGamesResponse>("/games",
   { params:
     {
       genres: gameQuery.genre?.id,
-      platforms: gameQuery.platform?.id
+      platforms: gameQuery.platform?.id,
+      ordering: gameQuery.sortOrder
     }
   },
   [gameQuery]);
