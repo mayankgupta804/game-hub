@@ -28,7 +28,6 @@ const GameGrid = ({ gameQuery }: Props) => {
         </GameCardContainer>
       ))}
     </SimpleGrid>
-      }
   )
 }
 
