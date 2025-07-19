@@ -1,9 +1,4 @@
-import useData from "./useData";
-
-export interface FetchPlatformsResponse {
-  count: number;
-  results: Platforms[];
-}
+import platforms from "../data/platforms";
 
 export interface Platforms {
   platforms: Platform[];
@@ -16,6 +11,6 @@ export interface Platform {
 }
 
 
-const usePlatforms = () => useData<FetchPlatformsResponse>('/platforms/lists/parents');
+const usePlatforms = () => ({data: platforms, error: null, isLoading: false});
 
 export default usePlatforms;

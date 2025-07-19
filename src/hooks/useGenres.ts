@@ -1,9 +1,4 @@
-import useData from "./useData";
-
-export interface FetchGenresResponse {
-  count: number;
-  results: Genre[];
-}
+import genres from "../data/genres";
 
 export interface Genre {
   id: string;
@@ -12,6 +7,10 @@ export interface Genre {
   slug: string;
 }
 
-const useGenres = () => useData<FetchGenresResponse>("/genres");
+const useGenres = () => ({
+  data: genres,
+  isLoading: false,
+  error: null,
+});
 
 export default useGenres;
